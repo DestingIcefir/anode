@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% include "./footer.njk" %}
+  </body>
+
+  <!--
+  这是用在开发的时候把cnode返回的数据打印在控制台
+  在正常使用的时候请删除该代码
+  -->
+  <script src='/javascripts/polyfill.js'></script>
+  <script src='/javascripts/common.js'></script>
+  <script>
+    console.log('data:', {{ data | dump | safe }})
+    console.log('user:', {{ user | dump | safe }})
+  </script>
+
+  {% block script %}
+  {% endblock %}
+
+</html>
